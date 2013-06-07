@@ -1,3 +1,5 @@
+var emitter = require("emitter");
+
 /**
  * Get the difference between two arrays
  * @param  {Array} arr
@@ -33,6 +35,8 @@ function Messages(el) {
   this.el = el;
   this._visible = [];
 }
+
+emitter(Messages.prototype);
 
 /**
  * Is a message currently visible
