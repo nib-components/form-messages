@@ -1,0 +1,14 @@
+{
+  "name": "form-messages",
+  "repo": "nib-components/form-messages",
+  "description": "Show messages on form elements",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
