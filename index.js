@@ -72,6 +72,7 @@ Messages.prototype.getDifference = function(names) {
 Messages.prototype.showAll = function(messages) {
   var names = Object.keys(messages);
   this.getDifference(names).forEach(this.remove, this);
+  var self = this;
   names.forEach(function(name) {
     self.show(name, messages[name]);
   }, this);
@@ -86,7 +87,7 @@ Messages.prototype.showAll = function(messages) {
 Messages.prototype.show = function(name, message) {
   var el = this.field(name) || this.el;
   if( this.isVisible(name) ) {
-    self.emit('update', name, message);
+    this.emit('update', name, message);
   }
   else {
     this.emit('show', el, name, message);
@@ -101,7 +102,7 @@ Messages.prototype.show = function(name, message) {
  */
 Messages.prototype.remove = function(name){
   if( !this.isVisible(name) ) return;
-  this.emit('hide', name);
+  this.emit('hide', this.field(name), name);
   this._visible = remove(name, this._visible);
 };
 
@@ -119,7 +120,7 @@ Messages.prototype.removeAll = function() {
  * @return {Element}
  */
 Messages.prototype.field = function(name) {
-  return this.el.querySelector('[data-message-for="'+name+'"], [name="'+name+'"]');
+  return this.el.querySelector('[data-message="'+name+'"], [name="'+name+'"]');
 };
 
 module.exports = Messages;
