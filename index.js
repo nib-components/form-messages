@@ -9,7 +9,7 @@ var emitter = require("emitter");
 function difference(arr, arr2) {
   return arr.filter(function(val) {
     return arr2.indexOf(val) > -1;
-  })
+  });
 }
 
 /**
