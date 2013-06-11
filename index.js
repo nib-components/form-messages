@@ -120,7 +120,7 @@ Messages.prototype.removeAll = function() {
  * @return {Element}
  */
 Messages.prototype.field = function(name) {
-  return this.el.querySelector('[data-message="'+name+'"], [name="'+name+'"]');
+  return this.el.querySelector('[data-message="'+name+'"], [name="'+name+'"], [data-validate-group="'+name+'"]');
 };
 
 module.exports = Messages;
