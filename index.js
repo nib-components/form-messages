@@ -32,11 +32,22 @@ function remove(val, arr) {
  * @param {Element} el Will show messages within this el
  */
 function Messages(el) {
+  if( !(this instanceof Messages) ) return new Messages(el);
   this.el = el;
   this._visible = [];
 }
 
 emitter(Messages.prototype);
+
+/**
+ * Plugins
+ * 
+ * @param {Function}
+ */
+Messages.prototype.use = function(fn) {
+  fn(this);
+  return this;
+};
 
 /**
  * Is a message currently visible
